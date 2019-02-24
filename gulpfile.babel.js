@@ -8,6 +8,7 @@ import concat from 'gulp-concat';
 import connect from 'gulp-connect';
 import eslint from 'gulp-eslint';
 import imagemin from 'gulp-imagemin';
+import svgSprite from 'gulp-svg-sprite';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import posthtml from 'gulp-posthtml';
@@ -95,7 +96,7 @@ export function fonts() {
 
 // Images
 export function images() {
-    return gulp.src('src/app/assets/images/**/*.{gif,jpg,jpeg,png,svg}', {since: gulp.lastRun(images)})
+    return gulp.src('src/app/assets/images/**/*.{gif,jpg,jpeg,png}', {since: gulp.lastRun(images)})
         .pipe(imagemin([
             imagemin.gifsicle({
                 "interlaced": true
@@ -116,6 +117,24 @@ export function images() {
         ]))
         .pipe(gulp.dest('build/img/'))
         .pipe(connect.reload());
+}
+
+export function svgSprites() {
+    return gulp.src('src/app/assets/images/icons/**/*.svg', { cwd: '' })
+        .pipe(plumber())
+        .pipe(svgSprite({
+            mode: {
+                symbol: {
+                    dest : 'img/',
+                    sprite : 'sprite.svg',
+                }
+            }
+        }))
+        .pipe(plumber(function (error) {
+            util.log(error.message);
+            this.emit('end');
+        }))
+        .pipe(gulp.dest('build/'));
 }
 
 // Files
@@ -141,7 +160,8 @@ export function watch() {
     gulp.watch('src/app/assets/stylesheets/**/*.scss', styles);
     gulp.watch('src/app/assets/javascripts/**/*.js', scripts);
     gulp.watch('src/app/assets/fonts/**/*.{woff,woff2}', fonts);
-    gulp.watch('src/app/assets/images/**/*.{gif,jpg,jpeg,png,svg}', images);
+    gulp.watch('src/app/assets/images/**/*.{gif,jpg,jpeg,png}', images);
+    gulp.watch('src/app/assets/images/icons/**/*.svg', svgSprites);
     gulp.watch('src/public/**/*', files);
 }
 
@@ -182,7 +202,7 @@ export function lintScripts() {
 // Tasks
 gulp.task('default', gulp.parallel(connectServer, watch));
 
-const build = gulp.series(clean, gulp.parallel(views, styles, vendorScripts, scripts, fonts, images, files));
+const build = gulp.series(clean, gulp.parallel(views, styles, vendorScripts, scripts, fonts, svgSprites, images, files));
 export {build}
 
 const lint = gulp.parallel(lintViews, lintStyles, lintScripts);

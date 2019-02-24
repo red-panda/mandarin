@@ -1,11 +1,27 @@
-doctype html
-html(lang='en')
-    head
-        meta(charset="utf-8")
-        meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title BEM-button
-        link(href="css/app.css" rel="stylesheet")
-    body
-        .container
-            h1 Mandarin
+extends layout/app
+
+block title
+  title Мандарин
+
+block main
+  .user
+    .user__name
+      | Deynis
+    .user__mail
+      | denis@jarency.ru
+
+  section.cards
+    ul.cards__list
+      - var cards = [{title: 'Баланс', subTitle: 'На балансе: 75 000 р.'}, {title: 'Мои услуги', subTitle: 'Подключена', link: {title: '1 услуга', url: '#'}}, {title: 'Поддержка', subTitle: 'У вас', link: {title: '1 заявка', url: '#'}}]
+      each val, index in cards
+        li.cards__item
+          .card
+            .card__title
+              = val.title
+            .card__sub-title
+              = val.subTitle + '&nbsp;'
+              if val.link
+                a(href=val.link.url)
+                  = val.link.title
+            a.card__pay-link(href="#")
+              | Пополнить счёт

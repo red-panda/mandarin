@@ -1,0 +1,32 @@
+header.header
+  nav.header-nav
+    ul.header-nav__list
+      li.header-nav__item
+        a.header-nav__link.header-nav__link--active(href="/")
+          | Главная
+        a.header-nav__link(href="#")
+          | Счета
+        a.header-nav__link(href="#")
+          | Мои услуги
+        a.header-nav__link(href="#")
+          | Поддержка
+          span.header-nav__counter
+            | 1
+        a.header-nav__link(href="#")
+          | документация
+  .header-controls
+    button#header-burger.header-burger
+      span.header-burger__box
+        span.header-burger__inner
+    a.header-logo(href="/")
+      svg()
+        use(xlink:href="img/sprite.svg#logo")
+    ul.header-controls__btns
+      li.header-controls__item
+        a.header-controls__link(href="#")
+          svg()
+            use(xlink:href="img/sprite.svg#person")
+      li.header-controls__item
+        a.header-controls__link(href="#")
+          svg()
+            use(xlink:href="img/sprite.svg#auth")

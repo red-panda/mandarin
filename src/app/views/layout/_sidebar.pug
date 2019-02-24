@@ -1,0 +1,33 @@
+aside.sidebar
+  a.sidebar-logo(href="/")
+    svg()
+      use(xlink:href="img/sprite.svg#logo-white")
+  .sidebar__select
+    .location__select
+      svg()
+        use(xlink:href="img/sprite.svg#map-marker")
+      select
+        option(val="moscow")
+          | Москва
+        option(val="petersburg")
+          | Санкт-Петербург
+        option(val="krasnodar")
+          | Краснодар
+        option(val="archangelsk")
+          | Архангельск
+  ul.sidebar__list
+    li.sidebar__item
+      svg.sidebar__icon()
+        use(xlink:href="img/sprite.svg#charts")
+      a.sidebar__link(href="#")
+        | Безопасность и управление трафиком
+    li.sidebar__item
+      svg.sidebar__icon()
+        use(xlink:href="img/sprite.svg#cloud")
+      a.sidebar__link(href="#")
+        | Вычислительные ресурсы и хранение данных
+    li.sidebar__item
+      svg.sidebar__icon()
+        use(xlink:href="img/sprite.svg#graduation-hat")
+      a.sidebar__link(href="#")
+        | Профессиональные сервисы

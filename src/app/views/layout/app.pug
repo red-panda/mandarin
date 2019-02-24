@@ -1,0 +1,30 @@
+doctype html
+
+html(lang='ru')
+  head
+    block head
+      meta(charset='utf-8')
+      block title
+
+      <!-- shrink-to-fit attribute is Safari-specific -->
+      meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+      meta(name="description" content="")
+      meta(name="keywords" content="")
+      <!-- format-detection meta cancel apps changing page -->
+      meta(name="format-detection" content="telephone=no")
+      meta(name="format-detection" content="address=no")
+
+      link(rel="stylesheet" href="css/app.css")
+      link(rel="apple-touch-icon" href="apple-touch-icon.png")
+  body
+    include ../layout/_sidebar
+    .content
+      include ../layout/_header
+
+      main
+        block main
+
+      include ../layout/_footer
+
+    block scripts
+      script(src='js/app.js')
