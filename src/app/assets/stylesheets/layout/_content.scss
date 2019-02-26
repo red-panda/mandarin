@@ -10,6 +10,10 @@
     margin-left: 97px;
   }
 
+  @include mq(xlg) {
+    margin-left: 371px;
+  }
+
   &--sidebar {
     transition: margin-left 0.5s;
     @include mq(lg) {

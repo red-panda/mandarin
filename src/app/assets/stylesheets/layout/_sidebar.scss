@@ -26,6 +26,7 @@
     .sidebar-menu__text {
       @include mq(lg) {
         max-width: 256px;
+        max-height: 200px;
         padding-left: 1.5rem;
         opacity: 1;
         transition: all 0.1s;
@@ -35,7 +36,8 @@
     #{$self}__links {
       @include mq(lg) {
         max-width: 256px;
-        transition: all 0.1s;
+        opacity: 1;
+        transition: opactiy 0.1s 0.25s, max-width 0.1s 0.25s;
       }
     }
 
@@ -89,7 +91,8 @@
     #{$self}__links {
       @include mq(lg) {
         max-width: 256px;
-        transition: all 0.1s;
+        opacity: 1;
+        transition: opactiy 0.1s 0.25s, max-width 0.1s 0.25s;
       }
     }
 
@@ -124,6 +127,7 @@
 
   &__content {
     padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
     max-width: 20.2rem;
     margin: 0 auto;
     display: flex;
@@ -152,8 +156,11 @@
     border-top: 1px solid rgba($COlOR_BACKGROUND_SECONDARY, 0.48);
     padding-top: 3.5rem;
     width: 100%;
-    max-width: 0;
-    transition: all 0.05s 0.25s;
+    @include mq(lg) {
+      max-width: 0;
+      opacity: 0;
+    }
+    transition: opactiy 0.1s 0.25s, max-width 0.1s 0.25s;
   }
 
   &__cross {

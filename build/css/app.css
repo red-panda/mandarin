@@ -158,6 +158,7 @@ h1 {
 @media all and (min-width: 1920px) and (min-width: 1060px) {
   .sidebar .sidebar-menu__text {
     max-width: 256px;
+    max-height: 200px;
     padding-left: 1.5rem;
     opacity: 1;
     transition: all 0.1s;
@@ -167,7 +168,8 @@ h1 {
 @media all and (min-width: 1920px) and (min-width: 1060px) {
   .sidebar .sidebar__links {
     max-width: 256px;
-    transition: all 0.1s;
+    opacity: 1;
+    transition: opactiy 0.1s 0.25s, max-width 0.1s 0.25s;
   }
 }
 
@@ -227,7 +229,8 @@ h1 {
 @media all and (min-width: 1060px) {
   .sidebar--active .sidebar__links {
     max-width: 256px;
-    transition: all 0.1s;
+    opacity: 1;
+    transition: opactiy 0.1s 0.25s, max-width 0.1s 0.25s;
   }
 }
 
@@ -259,6 +262,7 @@ h1 {
 
 .sidebar__content {
   padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   max-width: 20.2rem;
   margin: 0 auto;
   display: flex;
@@ -288,8 +292,14 @@ h1 {
   border-top: 1px solid rgba(255, 255, 255, 0.48);
   padding-top: 3.5rem;
   width: 100%;
-  max-width: 0;
-  transition: all 0.05s 0.25s;
+  transition: opactiy 0.1s 0.25s, max-width 0.1s 0.25s;
+}
+
+@media all and (min-width: 1060px) {
+  .sidebar__links {
+    max-width: 0;
+    opacity: 0;
+  }
 }
 
 .sidebar__cross {
@@ -453,6 +463,12 @@ h1 {
 @media all and (min-width: 1060px) {
   .content {
     margin-left: 97px;
+  }
+}
+
+@media all and (min-width: 1920px) {
+  .content {
+    margin-left: 371px;
   }
 }
 
