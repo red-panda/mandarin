@@ -1,0 +1,11 @@
+.main {
+  flex: 1;
+
+  &__wrap {
+    @include container;
+
+    @include mq(lg) {
+      margin-left: 0;
+    }
+  }
+}

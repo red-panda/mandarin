@@ -1,0 +1,164 @@
+/* Media queries */
+@mixin mq($mq-breakpoint) {
+  @if map-has-key($MQ_BREAKPOINTS, $mq-breakpoint) {
+
+    $mq-range: "min";
+    @if $mq-breakpoint == nth(map-keys($MQ_BREAKPOINTS), 1) {
+      $mq-range: "max";
+    }
+
+    @media all and (#{$mq-range}-width: map-get($MQ_BREAKPOINTS, $mq-breakpoint)) {
+      @content;
+    }
+  }
+}
+
+/* Container */
+@mixin container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+
+  @each $mq-container-width in $MQ_CONTAINER_WIDTHS {
+    $mq: nth($mq-container-width, 1);
+    $container-width: nth($mq-container-width, 2);
+
+    @include mq($mq) {
+      max-width: $container-width;
+    }
+  }
+
+  @each $mq-container-indent in $MQ_CONTAINER_INDENTS {
+    $mq: nth($mq-container-indent, 1);
+    $container-indent: nth($mq-container-indent, 2);
+
+    @include mq($mq) {
+      padding-right: $container-indent;
+      padding-left: $container-indent;
+    }
+  }
+}
+
+/* Grid */
+@mixin grid($main-axis: x, $justify-content: flex-start, $align-items: flex-start, $multiplier: 1, $mq-grid-gutters: $MQ_GRID_GUTTERS_INNER) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+
+  @if $main-axis == x {
+    flex-flow: row wrap;
+  }
+
+  @if $main-axis == y {
+    flex-flow: column nowrap;
+  }
+
+  @each $mq-grid-gutter in $mq-grid-gutters {
+    $mq: nth($mq-grid-gutter, 1);
+    $gutter: -#{nth($mq-grid-gutter, 2) / 2 * $multiplier};
+
+    @include mq($mq) {
+      margin-right: $gutter;
+      margin-left: $gutter;
+    }
+  }
+}
+
+/* Grid col */
+@mixin grid-col($multiplier: 1, $mq-grid-gutters: $MQ_GRID_GUTTERS_INNER) {
+  @each $mq-grid-gutter in $mq-grid-gutters {
+    $mq: nth($mq-grid-gutter, 1);
+    $gutter: nth($mq-grid-gutter, 2) / 2 * $multiplier;
+
+    @include mq($mq) {
+      padding-right: $gutter;
+      padding-left: $gutter;
+    }
+  }
+}
+
+/* Col size */
+@mixin col-size($size) {
+  width: $size * 100%;
+}
+
+/* Font */
+@mixin font($font-size, $line-height: 1.15) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin h1 {
+  @include font(3.2rem, 4.4rem);
+  font-weight: 100;
+  color: $COLOR_TEXT_TITLE;
+}
+
+/* Text */
+@mixin text-lg {
+  @include font(1.8rem, 2.7rem);
+}
+
+@mixin text-md {
+  @include font(1.6rem, 2.2rem);
+}
+
+@mixin text-sm {
+  @include font(1.2rem, 1.6rem);
+}
+
+@mixin text-btn {
+  @include font(1.4rem, 1.6rem);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@mixin text-tag {
+  @include font(1.2rem, 1.6rem);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@mixin text-counter {
+  @include font(1rem, 1.6rem);
+}
+
+@mixin cross {
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  top: 0;
+  right: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 3px;
+    background-color: $COlOR_BACKGROUND_SECONDARY;
+    top: 50%;
+    left: 50%;
+    transition: all $TRANSITION_DURATION;
+  }
+
+  &:before {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  &:after {
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  &:hover,
+  &:active {
+    &:before,
+    &:after {
+      background-color: $COlOR_BACKGROUND_SECONDARY;
+      transition: all $TRANSITION_DURATION;
+    }
+  }
+}

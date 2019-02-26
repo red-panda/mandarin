@@ -1,0 +1,8 @@
+.user {
+  padding: 3.2rem 0;
+  cursor: default;
+
+  &__name {
+    @include h1;
+  }
+}

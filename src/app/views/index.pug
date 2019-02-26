@@ -5,9 +5,9 @@ block title
 
 block main
   .user
-    .user__name
+    h1.user__name
       | Deynis
-    .user__mail
+    p.user__mail
       | denis@jarency.ru
 
   section.cards
@@ -19,9 +19,11 @@ block main
             .card__title
               = val.title
             .card__sub-title
-              = val.subTitle + '&nbsp;'
+              = val.subTitle + ' '
               if val.link
                 a(href=val.link.url)
                   = val.link.title
-            a.card__pay-link(href="#")
-              | Пополнить счёт
+            a.card-link(href="#")
+              span.card-link__icon
+              span.card-link__text
+                | Пополнить счёт

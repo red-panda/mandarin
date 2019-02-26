@@ -1,0 +1,23 @@
+.content {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: margin-left 0.5s;
+
+  @include mq(lg) {
+    margin-left: 97px;
+  }
+
+  &--sidebar {
+    transition: margin-left 0.5s;
+    @include mq(lg) {
+      margin-left: 271px;
+    }
+
+    @include mq(xlg) {
+      margin-left: 371px;
+    }
+  }
+}

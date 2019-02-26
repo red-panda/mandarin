@@ -1,0 +1,23 @@
+.cards {
+  &__list {
+    @include grid;
+  }
+
+  &__item {
+    @include grid-col;
+    @include col-size(1/1);
+    margin-bottom: 3.2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(md) {
+      @include col-size(1/2);
+
+      &:last-child {
+        @include col-size(1/1);
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+
+  line-height: 1.15; /* 1. Correct the line height in all browsers. */
+  -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+}
+
+body {
+  @include text-md;
+  font-family: $FONT_FAMILY;
+  background: $COLOR_BACKGROUND_BASE;
+  color: $COLOR_TEXT_BASE;
+  font-weight: $FONT_WEIGHT;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  //Sticky footer
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  flex-direction: row;
+}
+
+.body--backdrop {
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea,
+input[type="button"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  color: inherit;
+  font-family: $FONT_FAMILY;
+  border-radius: 0;
+  border: none;
+}
+
+input,
+textarea,
+select {
+  color: #000;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: top;
+}
+
+a {
+  color: $COLOR_LINK;
+  text-decoration: none;
+  transition: color $TRANSITION_DURATION;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+
+  @include mq(lg) {
+    &:hover {
+      color: $COLOR_LINK_ACTIVE;
+      transition: color $TRANSITION_DURATION;
+    }
+  }
+
+  &:active {
+    color: $COLOR_LINK_ACTIVE;
+    transition: color $TRANSITION_DURATION;
+  }
+}
+
+/* Headings */
+h1 {
+  @include h1;
+}

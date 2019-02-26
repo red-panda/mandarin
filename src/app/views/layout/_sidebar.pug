@@ -1,33 +1,59 @@
-aside.sidebar
-  a.sidebar-logo(href="/")
-    svg()
-      use(xlink:href="img/sprite.svg#logo-white")
-  .sidebar__select
-    .location__select
-      svg()
-        use(xlink:href="img/sprite.svg#map-marker")
-      select
-        option(val="moscow")
-          | Москва
-        option(val="petersburg")
-          | Санкт-Петербург
-        option(val="krasnodar")
-          | Краснодар
-        option(val="archangelsk")
-          | Архангельск
-  ul.sidebar__list
-    li.sidebar__item
-      svg.sidebar__icon()
-        use(xlink:href="img/sprite.svg#charts")
-      a.sidebar__link(href="#")
-        | Безопасность и управление трафиком
-    li.sidebar__item
-      svg.sidebar__icon()
-        use(xlink:href="img/sprite.svg#cloud")
-      a.sidebar__link(href="#")
-        | Вычислительные ресурсы и хранение данных
-    li.sidebar__item
-      svg.sidebar__icon()
-        use(xlink:href="img/sprite.svg#graduation-hat")
-      a.sidebar__link(href="#")
-        | Профессиональные сервисы
+aside#sidebar.sidebar
+  .sidebar__wrap
+    .sidebar__content
+      a.sidebar-logo(href="/")
+        svg.sidebar-logo__icon
+          use(xlink:href="img/sprite.svg#logo-white")
+      .sidebar__select
+        .location-select
+          svg.location-select__icon
+            use(xlink:href="img/sprite.svg#map-marker")
+          select.location-select__select
+            option(val="moscow")
+              | Москва
+            option(val="petersburg")
+              | Санкт-Петербург
+            option(val="krasnodar")
+              | Краснодар
+            option(val="archangelsk")
+              | Архангельск
+      ul.sidebar-menu
+        li.sidebar-menu__item
+          a.sidebar-menu__link(href="#")
+            svg.sidebar-menu__icon
+              use(xlink:href="img/sprite.svg#charts")
+            .sidebar-menu__text
+                | Безопасность и управление трафиком
+        li.sidebar-menu__item
+          a.sidebar-menu__link(href="#")
+            svg.sidebar-menu__icon
+              use(xlink:href="img/sprite.svg#cloud")
+            .sidebar-menu__text
+              | Вычислительные ресурсы и хранение данных
+        li.sidebar-menu__item
+          a.sidebar-menu__link(href="#")
+            svg.sidebar-menu__icon
+              use(xlink:href="img/sprite.svg#graduation-hat")
+            .sidebar-menu__text
+              | Профессиональные сервисы
+
+      ul.sidebar__links
+        li.sidebar__item
+          a.sidebar__link(href="#")
+            | Главная
+        li.sidebar__item
+          a.sidebar__link(href="#")
+            | Мои услуги
+        li.sidebar__item
+          a.sidebar__link(href="#")
+            | Поддержка
+        li.sidebar__item
+          a.sidebar__link(href="#")
+            | Счета
+        li.sidebar__item
+          a.sidebar__link(href="#")
+            | Справочник
+
+    button.sidebar__cross.js-sidebar-control
+
+    a.sidebar__control.js-sidebar-control(href="#")

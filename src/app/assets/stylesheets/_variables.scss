@@ -1,0 +1,72 @@
+$MQ_BREAKPOINTS: (
+  "sm": 767px,
+  "md": 768px,
+  "lg": 1060px,
+  "xlg": 1920px
+);
+
+$MQ_INDENTS: (
+  "sm": 1.6rem,
+  "md": 1.6rem,
+  "lg": 3.2rem,
+  "xlg": 3.2rem
+);
+
+$MQ_CONTAINER_WIDTHS: (
+  "sm": 100%,
+  "md": 100%,
+  "lg": 800px,
+  "xlg": 1184px
+);
+
+$MQ_GRID_GUTTERS: (
+  "sm": map-get($MQ_INDENTS, "sm"),
+  "md": map-get($MQ_INDENTS, "md"),
+  "lg": map-get($MQ_INDENTS, "lg"),
+  "xlg":map-get($MQ_INDENTS, "xlg")
+);
+
+$MQ_CONTAINER_INDENTS: (
+  "sm": map-get($MQ_INDENTS, "sm"),
+  "md": map-get($MQ_INDENTS, "md"),
+  "lg": map-get($MQ_INDENTS, "lg"),
+  "xlg":map-get($MQ_INDENTS, "xlg")
+);
+
+$MQ_GRID_GUTTERS_INNER: (
+  "sm": map-get($MQ_INDENTS, "sm"),
+  "md": map-get($MQ_INDENTS, "md") * 2,
+  "lg": map-get($MQ_INDENTS, "lg"),
+  "xlg":map-get($MQ_INDENTS, "xlg")
+);
+
+/* Fonts */
+@font-face {
+  font-family: OpenSans;
+  src: url(/fonts/OpenSans-Regular.woff);
+  src: url(/fonts/OpenSans-Regular.woff2);
+}
+
+$FONT_FAMILY: 'OpenSans', Helvetica, Arial, sans-serif;
+
+$COLOR_TEXT_BASE: #819195;
+$COLOR_TEXT_TITLE: #000;
+
+$COLOR_LINK: $COLOR_TEXT_BASE;
+$COLOR_LINK_ACTIVE: #04242C;
+
+$COLOR_LINK_SECONDARY: #3AA4E8;
+$COLOR_LINK_SECONDARY_ACTIVE: shade($COLOR_LINK_SECONDARY, 20%);
+
+$COLOR_BORDER: #E0E3E4;
+
+$COLOR_HIGHLIGHT: #7634A8;
+$COLOR_SIDEBAR: #625EB2;
+
+
+$COLOR_BACKGROUND_BASE: #F4F4F4;
+$COlOR_BACKGROUND_SECONDARY: #fff;
+
+$FONT_WEIGHT: normal;
+
+$TRANSITION_DURATION: 0.2s;

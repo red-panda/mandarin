@@ -4,6 +4,15 @@
 @import "mixins";
 @import "styles";
 
+//Layout
+@import "layout/sidebar";
+@import "layout/content";
+@import "layout/header";
+@import "layout/main";
+@import "layout/footer";
+
+@import "components";
+
 // Forms
 //@import "components/forms/buttons";
 //

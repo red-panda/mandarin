@@ -18,11 +18,12 @@ html(lang='ru')
       link(rel="apple-touch-icon" href="apple-touch-icon.png")
   body
     include ../layout/_sidebar
-    .content
+    #content.content
       include ../layout/_header
 
-      main
-        block main
+      main.main
+        .main__wrap
+          block main
 
       include ../layout/_footer
 

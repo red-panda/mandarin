@@ -1,12 +1,14 @@
 footer.footer
-  a.footer-logo(href="/")
-    svg()
-      use(xlink:href="img/sprite.svg#logo")
+  .footer__wrap
+    a.footer-logo(href="/")
+      svg.footer-logo__icon
+        use(xlink:href="img/sprite.svg#logo")
 
-  ul.footer-info
-    li.footer-info__item
-      | Москва, 121596 ул. Горбунова, 2, стр. 3
-    li.footer-info__item
-      | info@mandarin.solutions +7 495 269 20 20
-    li.footer-info__item
+    ul.footer-contacts
+      li.footer-contacts__item
+        | Москва, 121596 ул.&nbsp;Горбунова, 2, стр.&nbsp;3
+      li.footer-contacts__item
+        | info@mandarin.solutions +7 495 269 20 20
+
+    p.footer__desc
       | © ООО «Мандарин солюшенс», 2018
