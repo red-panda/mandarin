@@ -16,7 +16,7 @@ import pug from 'gulp-pug';
 import sass from 'gulp-sass';
 import stylelint from 'gulp-stylelint';
 import uglify from 'gulp-uglify';
-// import minifyCSS from 'postcss-clean';
+import minifyCSS from 'postcss-clean';
 import validateHTML from 'posthtml-w3c';
 
 // Config
@@ -54,6 +54,9 @@ export function styles() {
         .pipe(postcss([
             autoprefixer()
         ]))
+        .pipe(postcss([
+            minifyCSS()
+        ]))
         .pipe(gulp.dest('build/css/'))
         .pipe(connect.reload());
 }
@@ -82,6 +85,7 @@ export function scripts() {
             this.emit('end');
         }))
         .pipe(babel())
+        .pipe(uglify())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('build/js/'))
         .pipe(connect.reload());
